@@ -1,26 +1,23 @@
 # The directory Mix will write compiled artifacts to.
-/alchemist-server/_build/
+/_build/
 
 # If you run "mix test --cover", coverage assets end up here.
-alchemist-server/cover/
+/cover/
 
 # The directory Mix downloads your dependencies sources to.
-alchemist-server/deps/
+/deps/
 
 # Where third-party dependencies like ExDoc output generated docs.
-alchemist-server/doc/
+/doc/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
-alchemist-server/.fetch
+.fetch
 
 # If the VM crashes, it generates a dump, let's ignore it too.
-alchemist-server/erl_crash.dump
+erl_crash.dump
 
 # Also ignore archive artifacts (built via "mix archive.build").
-alchemist-server/*.ez
-
-# Ignore package tarball (built via "mix hex.build").
-alchemist-server/forwin-*.tar
+*.ez
 
 # Temporary files, for example, from tests.
-alchemist-server/tmp/
+/tmp/
