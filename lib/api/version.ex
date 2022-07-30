@@ -1,5 +1,3 @@
-Code.require_file "../helpers/response.exs", __DIR__
-
 defmodule Alchemist.API.Version do
 
   @moduledoc false

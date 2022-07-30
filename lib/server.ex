@@ -1,6 +1,3 @@
-Code.require_file "server/io.exs", __DIR__
-Code.require_file "server/socket.exs", __DIR__
-
 defmodule Alchemist.Server do
 
   @moduledoc """
@@ -20,7 +17,9 @@ defmodule Alchemist.Server do
 
   def start([args]) do
     {opts, _, _} = OptionParser.parse(args, switches: [port: :integer])
+    
     env = Keyword.get(opts, :env, "dev")
+    IO.puts(Keyword.get(opts, :listen, false))
     noansi = Keyword.get(opts, :no_ansi, false)
     Application.put_env(:iex, :colors, [enabled: !noansi])
     case Keyword.get(opts, :listen, false) do

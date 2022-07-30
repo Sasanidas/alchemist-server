@@ -1,5 +1,3 @@
-Code.require_file "module_info.exs", __DIR__
-
 defmodule Alchemist.Helpers.Complete do
 
   alias Alchemist.Helpers.ModuleInfo
@@ -98,7 +96,7 @@ defmodule Alchemist.Helpers.Complete do
   end
 
   defp yes(hint, entries) do
-    {:yes, String.to_charlist(hint), Enum.map(entries, &String.to_charlist/1)}
+    {:yes, String.to_char_list(hint), Enum.map(entries, &String.to_charlist/1)}
   end
 
   defp no do

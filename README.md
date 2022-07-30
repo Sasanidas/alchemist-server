@@ -37,11 +37,11 @@ Example for a completion request:
 COMP { "def", [ context: Elixir, imports: [Enum], aliases: [{MyList, List}] ] }
 ```
 
-## Read/Write through unix domain socket
+## Read/Write through network socket
 ```
 $ cd elixir_project
 $ elixir path/to/alchemist-server/run.exs --env=dev --listen
-ok|localhost:/tmp/alchemist-server-1500797742260403000.sock
+ok|localhost:55580
 ```
 In this mode, when a client connects to the port, it
 responds by sending information back to the opened connection
@@ -49,11 +49,9 @@ responds by sending information back to the opened connection
 Example for a completion request:
 
 ```
-$ nc -U /tmp/alchemist-server-1500797742260403000.sock
+$ nc localhost 55580
 COMP { "def", [ context: Elixir, imports: [Enum], aliases: [{MyList, List}] ] }
 ```
-
-Unix domain socket is introduced since OTP 19.
 
 # API
 

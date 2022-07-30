@@ -1,6 +1,3 @@
-Code.require_file "../helpers/complete.exs", __DIR__
-Code.require_file "../helpers/response.exs", __DIR__
-
 defmodule Alchemist.API.Comp do
 
   @moduledoc false

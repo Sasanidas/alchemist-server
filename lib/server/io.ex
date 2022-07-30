@@ -1,5 +1,3 @@
-Code.require_file "../helpers/process_commands.exs", __DIR__
-
 defmodule Alchemist.Server.IO do
 
   @moduledoc false
@@ -24,6 +22,6 @@ defmodule Alchemist.Server.IO do
   end
 
   def read_line do
-    IO.gets("") |> String.rstrip()
+    IO.gets("") |> String.trim_trailing()
   end
 end

@@ -1,8 +1,3 @@
-Code.require_file "../helpers/module_info.exs", __DIR__
-Code.require_file "../helpers/complete.exs", __DIR__
-Code.require_file "../helpers/capture_io.exs", __DIR__
-Code.require_file "../helpers/response.exs", __DIR__
-
 defmodule Alchemist.API.Info do
 
   @moduledoc false

@@ -1,5 +1,3 @@
-Code.require_file "../helpers/process_commands.exs", __DIR__
-
 defmodule Alchemist.Server.Socket do
 
   alias Alchemist.Helpers.ProcessCommands
@@ -9,22 +7,19 @@ defmodule Alchemist.Server.Socket do
 
     env = Keyword.get(opts, :env)
     port = Keyword.get(opts, :port, 0)
-    socket_file = opts
-                  |> Keyword.get( :socket_file, socket_file())
-                  |> String.to_charlist
 
     children = [
       supervisor(Task.Supervisor, [[name: Alchemist.Server.Socket.TaskSupervisor]]),
-      worker(Task, [__MODULE__, :accept, [env, port, socket_file]])
+      worker(Task, [__MODULE__, :accept, [env, port]])
     ]
 
     opts = [strategy: :one_for_one, name: Alchemist.Server.Socket.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
-  def accept(env, port, socket_file) do
+  def accept(env, port) do
     {:ok, socket} = :gen_tcp.listen(port,
-                    [:binary, packet: :line, active: false, reuseaddr: true, ifaddr: {:local, socket_file}])
+                    [:binary, packet: :line, active: false, reuseaddr: true])
     {:ok, port} = :inet.port(socket)
     IO.puts "ok|localhost:#{port}"
     loop_acceptor(socket, env)
@@ -60,10 +55,5 @@ defmodule Alchemist.Server.Socket do
 
   defp write_line(line, socket) do
     :gen_tcp.send(socket, line)
-  end
-
-  defp socket_file do
-    sock_id = :erlang.system_time()
-    "/tmp/alchemist-server-#{sock_id}.sock"
   end
 end

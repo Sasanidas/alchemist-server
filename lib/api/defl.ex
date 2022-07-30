@@ -1,6 +1,3 @@
-Code.require_file "../helpers/module_info.exs", __DIR__
-Code.require_file "../helpers/response.exs", __DIR__
-
 defmodule Alchemist.API.Defl do
 
   @moduledoc false

@@ -1,11 +1,3 @@
-Code.require_file "../api/comp.exs", __DIR__
-Code.require_file "../api/docl.exs", __DIR__
-Code.require_file "../api/defl.exs", __DIR__
-Code.require_file "../api/eval.exs", __DIR__
-Code.require_file "../api/info.exs", __DIR__
-Code.require_file "../api/ping.exs", __DIR__
-Code.require_file "../api/version.exs", __DIR__
-
 defmodule Alchemist.Helpers.ProcessCommands do
 
   @moduledoc false
@@ -42,7 +34,7 @@ defmodule Alchemist.Helpers.ProcessCommands do
       ["VERSION"] ->
         API.Version.request()
       _ ->
-        raise "Encountered unexpected input"
+        nil
     end
   end
 
